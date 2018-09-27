@@ -1,6 +1,6 @@
 package control;
 
-// Перебор вмех ASCII-символов нижнего регистра
+// Перебор всех ASCII-символов нижнего регистра
 
 public class ListCharacters {
     public static void main(String[] args) {
