@@ -1,3 +1,5 @@
+package operators;
+
 class Letter {
     char c;
 }
