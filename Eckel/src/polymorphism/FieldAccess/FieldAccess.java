@@ -1,4 +1,4 @@
-package FieldAccess;
+package polymorphism.FieldAccess;
 
 class Super {
     public int field = 0;
