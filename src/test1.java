@@ -1,18 +1,15 @@
 import java.io.File;
+import java.util.StringTokenizer;
 
 public class test1 {
     public static void main(String[] args) {
-        File f = new File("MyTestFile.txt");
-        File dir = new File("Chapter7");
-        dir.mkdir();
+        String s = "Good news everyone!";
 
-        if(dir.isDirectory()) {
-            for(String s : dir.list()) {
-                System.out.println(s);
-            }
+        StringTokenizer tokenizer = new StringTokenizer(s,"ne");
+        while (tokenizer.hasMoreTokens())
+        {
+            String token = tokenizer.nextToken();
+            System.out.println(token);
         }
-
-        System.out.println(dir.getAbsoluteFile());
-        System.out.println(f.delete());
     }
 }
