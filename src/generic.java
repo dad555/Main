@@ -6,8 +6,9 @@ public class generic {
 
         System.out.println(acc.getA());
 
-        Account<String> accSt = new Account<>();
+        Account<String, Long> accSt = new Account<>();
         accSt.setA("Hello");
+        accSt.setX(1020L);
 
 
     }
@@ -15,7 +16,7 @@ public class generic {
 }
 class Account <A, X> {
     A a;
-    X x,
+    X x;
 
     public A getA() {
         return a;
