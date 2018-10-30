@@ -24,7 +24,6 @@ public class Game extends Thread {
         this.width = width;
         this.height = height;
         this.snake = snake;
-        game = this;
     }
 
     public static void main(String[] args) {
@@ -80,10 +79,14 @@ public class Game extends Thread {
         @Override
         protected void paintComponent(Graphics g) {
             g.setColor(Color.WHITE);
-            g.fillRect(0,0, this.getWidth(), this.getHeight());
+            g.fillRect(0,0, this.getWidth() - 20, this.getHeight() - 20);
 
             for (int i = 0; i < snake.getSections().size(); i++) {
-                g.setColor(Color.BLACK);
+                if (i == 0) {
+                    g.setColor(Color.BLACK);
+                } else {
+                    g.setColor(Color.RED);
+                }
                 g.fillRect(snake.getSections().get(i).getX(), snake.getSections().get(i).getY(),20,20);
             }
 
@@ -96,8 +99,8 @@ public class Game extends Thread {
         int x;
         int y;
         while (true) {
-            x = (int) (Math.random() * width);
-            y = (int) (Math.random() * height);
+            x = (int) (Math.random() * (width - 20));
+            y = (int) (Math.random() * (height - 20));
             if (x % 20 == 0 && y % 20 == 0) {
                 mouse = new Mouse(x, y);
                 break;
