@@ -60,19 +60,15 @@ public class Game {
     public void eatMouse() {
         createMouse();
     }
-
     public Snake getSnake() {
         return snake;
     }
-
     public Mouse getMouse() {
         return mouse;
     }
-
     public int getWidth() {
         return width;
     }
-
     public int getHeight() {
         return height;
     }
