@@ -1,30 +1,22 @@
 public class generic {
     public static void main(String[] args) {
         Account<Integer, String> acc = new Account<>();
-        acc.setA(19);
-        acc.setX("Artur");
+        acc.setX(19);
+        acc.setY("Artur");
 
-        System.out.println(acc.getA());
+        System.out.println(acc.getX());
 
         Account<String, Long> accSt = new Account<>();
-        accSt.setA("Hello");
-        accSt.setX(1020L);
+        accSt.setX("Hello");
+        accSt.setY(1020L);
 
 
     }
 
 }
-class Account <A, X> {
-    A a;
-    X x;
-
-    public A getA() {
-        return a;
-    }
-
-    public void setA(A a) {
-        this.a = a;
-    }
+class Account <X, Y> {
+    private X x;
+    private Y y;
 
     public X getX() {
         return x;
@@ -32,5 +24,13 @@ class Account <A, X> {
 
     public void setX(X x) {
         this.x = x;
+    }
+
+    public Y getY() {
+        return y;
+    }
+
+    public void setY(Y y) {
+        this.y = y;
     }
 }
