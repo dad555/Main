@@ -17,7 +17,7 @@ public class test3 {
             System.out.println(s);
         }
 
-        list.forEach(x -> System.out.println(x));
+        list.forEach(System.out::println);
 
         int value1 = Stream.of(3, 10).min(Comparator.comparing(x -> x)).get();
         int value2 = Stream.of(3, 10).max(Comparator.comparing(x -> x)).get();
