@@ -2,38 +2,31 @@ package NewSnake;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.*;
-import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.Queue;
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.ArrayList;
 
-public class Game extends Thread {
+public class Game {
     private JFrame frame;
     private int width;
     private int height;
     private Snake snake;
     private Mouse mouse;
     public static Game game;
-    private Queue<KeyEvent> keyEvents = new ArrayBlockingQueue<KeyEvent>(100);
-
 
     public Game(int width, int height, Snake snake) {
         this.width = width;
         this.height = height;
         this.snake = snake;
+        game = this;
     }
 
     public static void main(String[] args) {
-        game = new Game(800, 800, new Snake(260,260));
+        game = new Game(800, 800, new Snake(250,250));
         game.snake.setDirection(SnakeDirection.DOWN);
         game.createMouse();
-        game.run();
+        game.go();
     }
 
-    public void run() {
+    void go() {
         frame = new JFrame("Новая змейка!");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -41,54 +34,16 @@ public class Game extends Thread {
         frame.getContentPane().add(panel);
         frame.setSize(width, height);
         frame.setVisible(true);
-
-        frame.addFocusListener(new FocusListener() {
-            @Override
-            public void focusGained(FocusEvent e) { }
-            @Override
-            public void focusLost(FocusEvent e) {
-                System.exit(0);
-            }
-        });
-
-        frame.addKeyListener(new KeyListener() {
-            public void keyTyped(KeyEvent e) { }
-            public void keyReleased(KeyEvent e) { }
-            public void keyPressed(KeyEvent e) {
-                keyEvents.add(e);
-            }
-        });
-
-        while (snake.isAlive()) {
-            if (game.hasKeyEvents()) {
-                KeyEvent event = game.getEventFromTop();
-                if (event.getKeyChar() == 'q') return;
-
-                if (event.getKeyCode() == KeyEvent.VK_LEFT) snake.setDirection(SnakeDirection.LEFT);
-                else if (event.getKeyCode() == KeyEvent.VK_RIGHT) snake.setDirection(SnakeDirection.RIGHT);
-                else if (event.getKeyCode() == KeyEvent.VK_UP) snake.setDirection(SnakeDirection.UP);
-                else if (event.getKeyCode() == KeyEvent.VK_DOWN) snake.setDirection(SnakeDirection.DOWN);
-            }
-            snake.move();
-            sleep();
-            panel.repaint();
-        }
     }
 
     class DrawGamePanel extends JPanel {
         @Override
         protected void paintComponent(Graphics g) {
             g.setColor(Color.WHITE);
-            g.fillRect(0,0, this.getWidth() - 20, this.getHeight() - 20);
+            g.fillRect(0,0, this.getWidth(), this.getHeight());
 
-            for (int i = 0; i < snake.getSections().size(); i++) {
-                if (i == 0) {
-                    g.setColor(Color.BLACK);
-                } else {
-                    g.setColor(Color.RED);
-                }
-                g.fillRect(snake.getSections().get(i).getX(), snake.getSections().get(i).getY(),20,20);
-            }
+            g.setColor(Color.BLACK);
+            g.fillRect(snake.getSections().get(0).getX(), snake.getSections().get(0).getY(),20,20);
 
             g.setColor(Color.BLUE);
             g.fillRect(mouse.getX(),mouse.getY(),20,20);
@@ -96,36 +51,29 @@ public class Game extends Thread {
     }
 
     public void createMouse() {
-        int x;
-        int y;
-        while (true) {
-            x = (int) (Math.random() * (width - 20));
-            y = (int) (Math.random() * (height - 20));
-            if (x % 20 == 0 && y % 20 == 0) {
-                mouse = new Mouse(x, y);
-                break;
-            }
-        }
+        int x = (int) (Math.random() * width);
+        int y = (int) (Math.random() * height);
+
+        mouse = new Mouse(x, y);
     }
 
-    public void eatMouse() { createMouse(); }
-    public Snake getSnake() { return snake; }
-    public Mouse getMouse() { return mouse; }
-    public int getWidth() { return width; }
-    public int getHeight() { return height; }
+    public void eatMouse() {
+        createMouse();
+    }
 
-    public boolean hasKeyEvents() { return !keyEvents.isEmpty(); }
-    public KeyEvent getEventFromTop() { return keyEvents.poll(); }
+    public Snake getSnake() {
+        return snake;
+    }
 
-    private int initialDelay = 320;
-    private int delayStep = 20;
+    public Mouse getMouse() {
+        return mouse;
+    }
 
-    public void sleep() {
-        try {
-            int level = snake.getSections().size();
-            int delay = level < 15 ? (initialDelay - delayStep * level) : 200;
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-        }
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
     }
 }

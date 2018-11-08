@@ -36,13 +36,18 @@ public class Snake {
     public void move() {
         if (!isAlive) return;
 
-        if (direction == SnakeDirection.UP) move(0, -20);
-        else if (direction == SnakeDirection.RIGHT) move(20, 0);
-        else if (direction == SnakeDirection.DOWN) move(0, 20);
-        else if (direction == SnakeDirection.LEFT) move(-20, 0);
+        if (direction == SnakeDirection.UP)
+            move(0, -1);
+        else if (direction == SnakeDirection.RIGHT)
+            move(1, 0);
+        else if (direction == SnakeDirection.DOWN)
+            move(0, 1);
+        else if (direction == SnakeDirection.LEFT)
+            move(-1, 0);
     }
 
     private void move(int dx, int dy) {
+        // Создаем новую голову - новый "кусочек змеи".
         SnakeSection head = sections.get(0);
         head = new SnakeSection(head.getX() + dx, head.getY() + dy);
 
