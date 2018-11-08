@@ -12,11 +12,16 @@ public class Parcel7 {
             public int value() {
                 return i;
             }
+
+            public void setValue(int x) {
+                this.i = x;
+            }
         };
     }
 
     public static void main(String[] args) {
         Parcel7 p = new Parcel7();
         Contents c = p.contents();
+        System.out.println(c.value());
     }
 }

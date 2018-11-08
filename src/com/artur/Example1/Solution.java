@@ -25,7 +25,7 @@ public class Solution {
 
         switcher.addElectricityListener(sender -> System.out.println(message));
 
-        switcher.addElectricityListener(Solution::Fire); // если параметра метода совпадают с параметром лямбды выражения
+        switcher.addElectricityListener(Solution::Fire); // если параметр метода совпадает с параметром лямбды выражения
 
 
         switcher.switchOn();

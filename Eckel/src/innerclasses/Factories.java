@@ -28,6 +28,11 @@ class Implementation1 implements Service {
             return new Implementation1();
         }
     };
+    // Вариант factory с лямбда выражением
+    public static ServiceFactory factory2 = () -> new Implementation1();
+    // короткий вариант
+    public static ServiceFactory factory3 = Implementation1::new;
+
 }
 
 class Implementation2 implements Service {
@@ -49,6 +54,11 @@ class Implementation2 implements Service {
             return new Implementation2();
         }
     };
+
+    // Вариант factory с лямбда выражением
+    public static ServiceFactory factory2 = () -> new Implementation2();
+    // короткий вариант
+    public static ServiceFactory factory3 = Implementation2::new;
 }
 
 public class Factories {
