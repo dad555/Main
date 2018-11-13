@@ -25,5 +25,7 @@ public class MapOfList {
                 System.out.println("    " + i);
             }
         }
+
+        System.out.println(mapoflist.containsKey("Артур"));
     }
 }
