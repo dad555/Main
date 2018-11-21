@@ -30,7 +30,7 @@
               <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Депозит"/>
+              <text value="Депозит (2% в час)"/>
             </properties>
           </component>
           <component id="b40a4" class="javax.swing.JLabel" binding="sumLabel">
@@ -54,7 +54,7 @@
               <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="1" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Срок"/>
+              <text value="Срок (ч)"/>
             </properties>
           </component>
           <component id="95ae9" class="javax.swing.JTextField" binding="depoPeriodField">

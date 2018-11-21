@@ -2,9 +2,9 @@ package com.artur.bankir;
 
 public class Deposit {
     private double depositeSize;
-    private double depositePeriod;
+    private int depositePeriod;
 
-    public Deposit(double depositeSize, double depositePeriod) {
+    public Deposit(double depositeSize, int depositePeriod) {
         this.depositeSize = depositeSize;
         this.depositePeriod = depositePeriod;
     }
@@ -12,16 +12,17 @@ public class Deposit {
     public double getDepositeSize() {
         return depositeSize;
     }
-
     public void setDepositeSize(double depositeSize) {
         this.depositeSize = depositeSize;
     }
-
-    public double getDepositePeriod() {
+    public int getDepositePeriod() {
         return depositePeriod;
     }
-
-    public void setDepositePeriod(double depositePeriod) {
+    public void setDepositePeriod(int depositePeriod) {
         this.depositePeriod = depositePeriod;
+    }
+
+    public double calcDeposit() {
+        return (depositeSize * 0.02) * depositePeriod;
     }
 }
