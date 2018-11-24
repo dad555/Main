@@ -32,19 +32,20 @@ public class Game {
             final double[] revenue = new double[1];
             deposit[0] = new Deposit(size, period);
             wealth.setWealthSize(wealth.getWealthSize() - size);
-            gui.logsArea.setText(getTime() + gui.logsArea.getText() + " Вы вложили " + size + "$ на срок " + period + " ч. \n");
+            //gui.logsArea.setText(getCurrentTime() + gui.logsArea.getText() + " Вы вложили " + size + "$ на срок " + period + " ч. \n");
+            gui.logsArea.setText(String.format("%s %s Вы вложили %s$ на срок %d ч. \n", gui.logsArea.getText(), getCurrentTime(), size, period));
             Thread depoThread = new Thread(() -> {
                 try {
                     Thread.sleep(3600000);
                     revenue[0] = deposit[0].calcDeposit();
-                    gui.logsArea.setText(gui.logsArea.getText() + getTime() + " Срок депозита окончен. Вы заработали " + (revenue[0] + size) + " $ \n");
+                    gui.logsArea.setText(gui.logsArea.getText() + getCurrentTime() + " Срок депозита окончен. Вы заработали " + (revenue[0] + size) + " $ \n");
                 } catch (Exception e1) {}
             });
             depoThread.start();
         });
     }
 
-    public static String getTime() {
+    public static String getCurrentTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.Y HH:mm:ss");
         return sdf.format(new Date(System.currentTimeMillis()));
     }
