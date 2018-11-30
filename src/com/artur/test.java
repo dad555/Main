@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class test {
     public static void main(String[] args) {
@@ -47,5 +48,13 @@ public class test {
         System.getProperties().list(System.out);
         System.out.println(System.getProperty("user.name"));
         System.out.println(System.getProperty("java.library.path"));
+
+
+        String s = "Тест " + Math.random();
+
+        System.out.println(s);
+
+        System.out.println(new Random().nextInt(999999));
+
     }
 }
