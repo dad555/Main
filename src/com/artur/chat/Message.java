@@ -2,7 +2,7 @@ package com.artur.chat;
 
 import java.io.Serializable;
 
-
+// класс, отвечающий за пересылаемые сообщения
 public class Message implements Serializable {
     private final MessageType type;
     private final String data;

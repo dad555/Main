@@ -39,7 +39,6 @@ public class ClientGuiController  extends Client {
     }
 
 
-
     public class GuiSocketThread extends SocketThread
     {
         @Override
@@ -65,7 +64,5 @@ public class ClientGuiController  extends Client {
             super.notifyConnectionStatusChanged(clientConnected);
             view.notifyConnectionStatusChanged(clientConnected);
         }
-
-
     }
 }

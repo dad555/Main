@@ -84,6 +84,7 @@ public class Client extends Thread {
         client.run();
     }
 
+    // класс отвечает за поток, устанавливающий сокетное соединение и читающий сообщения сервера
     public class SocketThread extends Thread {
         protected void processIncomingMessage(String message) {
             ConsoleHelper.writeMessage(message);
