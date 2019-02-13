@@ -39,8 +39,7 @@ public class ClientGuiController  extends Client {
     }
 
 
-    public class GuiSocketThread extends SocketThread
-    {
+    public class GuiSocketThread extends SocketThread {
         @Override
         protected void processIncomingMessage(String message) {
             model.setNewMessage(message);

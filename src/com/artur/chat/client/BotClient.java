@@ -72,7 +72,6 @@ public class BotClient extends Client {
                             case "секунды":
                                 format = new SimpleDateFormat("s");
                                 break;
-
                         }
                         if (format != null) {
                             sendTextMessage(String.format("Информация для %s: %s", name, format.format(Calendar.getInstance().getTime())));
