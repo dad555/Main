@@ -1,9 +1,9 @@
-package com.artur.chat.client;
+package com.artur.templates.chat.client;
 
-import com.artur.chat.Connection;
-import com.artur.chat.ConsoleHelper;
-import com.artur.chat.Message;
-import com.artur.chat.MessageType;
+import com.artur.templates.chat.Connection;
+import com.artur.templates.chat.ConsoleHelper;
+import com.artur.templates.chat.Message;
+import com.artur.templates.chat.MessageType;
 
 import java.io.IOException;
 import java.net.Socket;

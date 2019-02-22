@@ -1,6 +1,6 @@
-package com.artur.chat.client;
+package com.artur.templates.chat.client;
 
-import com.artur.chat.ConsoleHelper;
+import com.artur.templates.chat.ConsoleHelper;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;

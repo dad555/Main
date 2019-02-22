@@ -1,4 +1,4 @@
-package com.artur.chat.client;
+package com.artur.templates.chat.client;
 
 import java.util.Collections;
 import java.util.HashSet;

@@ -1,4 +1,4 @@
-package com.artur.chat;
+package com.artur.templates.chat;
 
 import java.io.*;
 import java.net.*;

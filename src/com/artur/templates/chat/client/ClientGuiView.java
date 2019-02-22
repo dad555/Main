@@ -1,4 +1,4 @@
-package com.artur.chat.client;
+package com.artur.templates.chat.client;
 
 import javax.swing.*;
 import java.awt.*;

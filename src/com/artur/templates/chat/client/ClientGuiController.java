@@ -1,4 +1,4 @@
-package com.artur.chat.client;
+package com.artur.templates.chat.client;
 
 public class ClientGuiController  extends Client {
 

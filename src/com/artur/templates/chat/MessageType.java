@@ -1,4 +1,4 @@
-package com.artur.chat;
+package com.artur.templates.chat;
 
 // типы сообщений пересылаемых между клиентом и сервером
 public enum  MessageType {
