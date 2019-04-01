@@ -1,19 +1,25 @@
 package com.artur;
 
+import sun.misc.VM;
+
 public class test5 {
     public static void main(String[] args) {
-        int i = 5;
+        int x = 100;
+        Integer y = new Integer(100);
+        Integer z = 100;
 
-        while (i < 5) {
-            i++;
-        }
+        System.out.println(x==y); // true
+        System.out.println(x==z); // true
+        System.out.println(y==z); // true
 
-        System.out.println(i);
+        System.out.println();
 
-        do {
-            i++;
-        } while (i < 5);
+        int _x = 300;
+        Integer _y = 300;
+        Integer _z = 300;
 
-        System.out.println(i);
+        System.out.println(_x==_y); // true
+        System.out.println(_x==_z); // true
+        System.out.println(_y==_z); // true
     }
 }
