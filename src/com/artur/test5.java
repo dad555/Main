@@ -11,6 +11,10 @@ public class test5 {
         System.out.println(x==y); // true
         System.out.println(x==z); // true
         System.out.println(y==z); // true
+        System.out.println(y.getClass().getSimpleName().hashCode());
+        System.out.println(z.getClass().hashCode());
+
+
 
         System.out.println();
 
@@ -21,5 +25,8 @@ public class test5 {
         System.out.println(_x==_y); // true
         System.out.println(_x==_z); // true
         System.out.println(_y==_z); // true
+
+        System.out.println(_y.getClass().getSimpleName().hashCode());
+        System.out.println(_z.getClass().getSimpleName().hashCode());
     }
 }
