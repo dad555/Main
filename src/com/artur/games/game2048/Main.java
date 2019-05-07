@@ -1,4 +1,4 @@
-package com.artur.games.Dva;
+package com.artur.games.game2048;
 
 import javax.swing.*;
 
