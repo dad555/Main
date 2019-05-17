@@ -4,8 +4,15 @@ import java.util.*;
 
 public class test5 {
     public static void main(String[] args) {
-        double x = -1.0 / 0.0;
-        double y = 1.0 / 0.0;
-        System.out.println(y * -1);
+        print(3);
+    }
+
+    public static void print(int x) {
+        if (x <=0) System.out.println("Boom!");
+        else {
+            System.out.println(x);
+            print(x - 1);
+            System.out.println(x);
+        }
     }
 }
